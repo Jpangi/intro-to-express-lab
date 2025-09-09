@@ -30,10 +30,12 @@ app.get('/collectibles/:index', (req, res) =>{
         { name: 'autographed picture of a dog', price: 10 },
         { name: 'vintage 1970s yogurt SOLD AS-IS', price: 0.99 }
   ];
+  const index = Number(req.params.index)
   if(req.params.index > collectibles.length){
     res.send(`<h1>This item is not yet in stock. Check back soon!</h1>`)
   }
-    res.send(`<h1>Hello there, ${collectibles[Number(req.params.index)]}!</h1>`)
+  const item = collectibles[index]
+    res.send(`<h1>Hello there, the ${item.name} is ${item.price}!</h1>`)
 })
 
 
